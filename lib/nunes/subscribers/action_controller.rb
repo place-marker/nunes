@@ -35,18 +35,6 @@ module Nunes
         increment "action_controller.format.#{format}" if format
         increment "action_controller.status.#{status}" if status
 
-        if controller && action
-          namespace = "action_controller.controller.#{controller}.#{action}"
-
-          timing "#{namespace}.runtime.total",      runtime
-          timing "#{namespace}.runtime.view", view_runtime if view_runtime
-          timing "#{namespace}.runtime.db",   db_runtime   if db_runtime
-
-          increment "#{namespace}.format.#{format}" if format
-          increment "#{namespace}.status.#{status}" if status
-
-        end
-
         if exception_info
           exception_class, exception_message = exception_info
 

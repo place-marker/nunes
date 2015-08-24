@@ -27,7 +27,7 @@ module Nunes
     adapter = Nunes::Adapter.wrap(client)
 
     subscribers << Subscribers::ActionController.subscribe(adapter)
-    subscribers << Subscribers::ActionView.subscribe(adapter)
+    # subscribers << Subscribers::ActionView.subscribe(adapter)
     subscribers << Subscribers::ActionMailer.subscribe(adapter)
     subscribers << Subscribers::ActiveSupport.subscribe(adapter)
     subscribers << Subscribers::ActiveRecord.subscribe(adapter)
